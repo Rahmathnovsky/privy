@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privy - Identitas Digital & Tanda Tangan Elektronik Terpercaya</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo">
+                <img src="privy-logo.png" alt="Privy Logo" style="height: 48px; width: auto;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#produk">Produk</a></li>
+                <li><a href="#solusi">Solusi</a></li>
+                <li><a href="#harga">Harga</a></li>
+                <li><a href="#perusahaan">Perusahaan</a></li>
+                <li><a href="#blog">Blog</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="btn btn-login">Masuk</a>
+                <a href="#" class="btn btn-primary">Registrasi</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Carousel Section (Full Width Slider) -->
+    <section class="hero-carousel">
+        <div class="carousel-track" id="heroTrack">
+            <!-- Slide 1: Personal (Red Theme) -->
+            <div class="carousel-slide slide-1">
+                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
+                    class="slide-bg" alt="Bg">
+                <div class="slide-overlay"></div>
+                <div class="container hero-container">
+                    <div class="hero-text-content">
+                        <div class="tag-pill">
+                            <i class="fas fa-check-circle"></i> Indonesia's #1 Digital Identity
+                        </div>
+                        <h1>Privy Personal Plan: Your Identity, Your Signature</h1>
+                        <p>One subscription for secure signing, storing, verifying, and affixing e-Meterai in your
+                            documents anytime, anywhere.</p>
+                        <a href="#" class="btn-glow">Get Privy Personal Plan <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="hero-visuals">
+                        <div class="float-card card-1">
+                            <i class="fas fa-file-signature"></i>
+                            <span>Unlimited Sign</span>
+                        </div>
+                        <div class="float-card card-2">
+                            <i class="fas fa-hdd"></i>
+                            <span>Secure Storage</span>
+                        </div>
+                        <div class="float-card card-3">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span>Upload & Send Freely</span>
+                        </div>
+                        <div class="video-thumbnail">
+                            <div class="play-btn"><i class="fas fa-play"></i></div>
+                            <div class="vid-text">
+                                <span>Why Millions Trust Privy</span>
+                                <p>See how Privy simplifies digital trust.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Business (Blue/Dark Theme) -->
+            <div class="carousel-slide slide-2">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
+                    class="slide-bg" alt="Bg">
+                <div class="slide-overlay"></div>
+                <div class="container hero-container">
+                    <div class="hero-text-content">
+                        <div class="tag-pill" style="border-color: #4299E1; background: rgba(66, 153, 225, 0.1);">
+                            <i class="fas fa-building" style="color: #4299E1;"></i> Trusted by 1,800+ Companies
+                        </div>
+                        <h1>Build Digital Trust at Every Step of Business</h1>
+                        <p>Verify identities, onboard users, and secure high-volume transactions with our
+                            regulatory-grade infrastructure.</p>
+                        <a href="#" class="btn-glow">Contact Sales for Business <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="hero-visuals">
+                        <div class="float-card card-1">
+                            <i class="fas fa-users-cog"></i>
+                            <span>User Management</span>
+                        </div>
+                        <div class="float-card card-2">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Enterprise Security</span>
+                        </div>
+                        <div class="float-card card-3">
+                            <i class="fas fa-plug"></i>
+                            <span>API Integration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navigation -->
+        <div class="carousel-nav">
+            <div class="nav-dot active" onclick="goToSlide(0)"></div>
+            <div class="nav-dot" onclick="goToSlide(1)"></div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <h2>30 Juta+</h2>
+                <p>Pengguna Terverifikasi</p>
+            </div>
+            <div class="stat-item">
+                <h2>1.800+</h2>
+                <p>Perusahaan Mitra</p>
+            </div>
+            <div class="stat-item">
+                <h2>100 Juta+</h2>
+                <p>Dokumen Ditandatangani</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Marquee Section -->
+    <section class="clients-section">
+        <div class="container">
+            <div class="clients-header">
+                <p>Dipercaya oleh Perusahaan Terdepan di Indonesia</p>
+            </div>
+            <div class="marquee-container">
+                <div class="marquee-content">
+                    <div class="client-logo"><i class="fab fa-google"></i> Google</div>
+                    <div class="client-logo"><i class="fab fa-aws"></i> Amazon</div>
+                    <div class="client-logo"><i class="fab fa-microsoft"></i> Microsoft</div>
+                    <div class="client-logo"><i class="fas fa-building"></i> Telkom</div>
+                    <div class="client-logo"><i class="fas fa-university"></i> Mandiri</div>
+                    <div class="client-logo"><i class="fas fa-plane"></i> Garuda</div>
+                    <div class="client-logo"><i class="fas fa-shopping-bag"></i> Tokopedia</div>
+                    <div class="client-logo"><i class="fab fa-google"></i> Google</div>
+                    <div class="client-logo"><i class="fab fa-aws"></i> Amazon</div>
+                    <div class="client-logo"><i class="fab fa-microsoft"></i> Microsoft</div>
+                    <div class="client-logo"><i class="fas fa-building"></i> Telkom</div>
+                    <div class="client-logo"><i class="fas fa-university"></i> Mandiri</div>
+                    <div class="client-logo"><i class="fas fa-plane"></i> Garuda</div>
+                    <div class="client-logo"><i class="fas fa-shopping-bag"></i> Tokopedia</div>
+                </div>
+            </div>
+            <div class="marquee-container">
+                <div class="marquee-content reverse">
+                    <div class="client-logo"><i class="fas fa-car"></i> Gojek</div>
+                    <div class="client-logo"><i class="fas fa-mobile-alt"></i> Indosat</div>
+                    <div class="client-logo"><i class="fas fa-bolt"></i> PLN</div>
+                    <div class="client-logo"><i class="fab fa-apple"></i> Apple</div>
+                    <div class="client-logo"><i class="fab fa-spotify"></i> Spotify</div>
+                    <div class="client-logo"><i class="fas fa-globe"></i> Traveloka</div>
+                    <div class="client-logo"><i class="fas fa-store"></i> Bukalapak</div>
+                    <div class="client-logo"><i class="fas fa-car"></i> Gojek</div>
+                    <div class="client-logo"><i class="fas fa-mobile-alt"></i> Indosat</div>
+                    <div class="client-logo"><i class="fas fa-bolt"></i> PLN</div>
+                    <div class="client-logo"><i class="fab fa-apple"></i> Apple</div>
+                    <div class="client-logo"><i class="fab fa-spotify"></i> Spotify</div>
+                    <div class="client-logo"><i class="fas fa-globe"></i> Traveloka</div>
+                    <div class="client-logo"><i class="fas fa-store"></i> Bukalapak</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privy for YOU Section -->
+    <section class="solutions-section" id="solusi">
+        <div class="container">
+            <div class="section-header">
+                <h2>Privy for YOU:Personal or Business, We've Got You Covered</h2>
+                <p>Whether you're signing documents for yourself or managing transactions for your business, Privy
+                    offers secure, seamless solutions for digital signatures, identity verification, and more.</p>
+            </div>
+            <div class="tabs-nav">
+                <div class="tab-btn active" onclick="openTab('personal')">Personal Plan</div>
+                <div class="tab-btn" onclick="openTab('business')">Business Plan</div>
+            </div>
+            <div id="personal" class="tab-content active">
+                <div class="bento-card">
+                    <div class="bento-header">
+                        <h3>Personal Plan</h3>
+                        <p>Unlimited signing, secure storage, and verified identity register free on the app and
+                            subscribe monthly or yearly.</p>
+                    </div>
+                    <div class="bento-body">
+                        <div class="bento-image"></div>
+                        <div class="bento-details">
+                            <div class="detail-item">
+                                <h4>Unlimited digital signature</h4>
+                                <p>Unlock unlimited self-signing, request signatures from others, and sign documents
+                                    from others.</p>
+                            </div>
+                            <div class="detail-item">
+                                <h4>Upload all types of docs.</h4>
+                                <p>Upload letters, invoices, or even official agreements. Sign it by yourself or request
+                                    signatures from others.</p>
+                            </div>
+                            <div class="detail-item">
+                                <h4>10 GB document storage</h4>
+                                <p>Store and never lose track of all of your important documents in one application.</p>
+                            </div>
+                            <div class="store-badges">
+                                <a href="#" class="store-btn">
+                                    <i class="fab fa-google-play"></i>
+                                    <div class="store-text">
+                                        <span>GET IT ON</span>
+                                        <strong>Google Play</strong>
+                                    </div>
+                                </a>
+                                <a href="#" class="store-btn">
+                                    <i class="fab fa-apple"></i>
+                                    <div class="store-text">
+                                        <span>Download on the</span>
+                                        <strong>App Store</strong>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="business" class="tab-content">
+                <div class="bento-card business-style">
+                    <div class="bento-header">
+                        <h3>Business Plan</h3>
+                        <p>Complete digital document management, e-Meterai, and API integration for your enterprise
+                            efficiency.</p>
+                    </div>
+                    <div class="bento-body">
+                        <div class="bento-image"
+                            style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');">
+                        </div>
+                        <div class="bento-details">
+                            <div class="detail-item">
+                                <h4>Enterprise Document Management</h4>
+                                <p>Centralized dashboard for managing thousands of documents with role-based access
+                                    control.</p>
+                            </div>
+                            <div class="detail-item">
+                                <h4>Seamless API Integration</h4>
+                                <p>Connect Privy directly to your existing systems (ERP, CRM, HRIS) with our robust API.
+                                </p>
+                            </div>
+                            <div class="detail-item">
+                                <h4>e-Meterai Support</h4>
+                                <p>Official distributor of e-Meterai. Stamp your documents legally without hassle.</p>
+                            </div>
+                            <div style="margin-top: 30px;">
+                                <button class="btn btn-primary" style="background: white; color: #1A202C;">Contact
+                                    Sales</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="produk">
+        <div class="container">
+            <div class="section-header">
+                <h2>Solusi Lengkap untuk Kebutuhan Digital Anda</h2>
+                <p>Satu platform untuk semua kebutuhan identitas dan dokumen digital, aman dan sah secara hukum.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-signature"></i>
+                    </div>
+                    <h3>PrivySign</h3>
+                    <p>Tanda tangan elektronik tersertifikasi yang sah di mata hukum. Kirim dan tandatangani dokumen
+                        dari mana saja.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <h3>PrivyIdentity</h3>
+                    <p>Verifikasi identitas pengguna secara real-time dengan teknologi pengenalan wajah dan biometrik
+                        tercanggih.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-stamp"></i>
+                    </div>
+                    <h3>e-Meterai</h3>
+                    <p>Bubuhkan e-Meterai resmi Peruri pada dokumen digital Anda langsung dari platform Privy tanpa
+                        ribet.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>PrivyEnterprise</h3>
+                    <p>Solusi manajemen dokumen dan identitas skala besar untuk korporasi dengan kontrol akses tingkat
+                        lanjut.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Keamanan Tingkat Tinggi</h3>
+                    <p>Enkripsi end-to-end dan sertifikasi ISO 27001 menjamin data Anda aman dan terlindungi setiap
+                        saat.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>API Integration</h3>
+                    <p>Integrasikan layanan Privy ke dalam aplikasi bisnis Anda dengan dokumentasi API yang lengkap dan
+                        mudah.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="harga">
+        <div class="container">
+            <div class="section-header">
+                <h2>Every Great Achievement Starts<br>With The Right Plan</h2>
+                <p>Pilih paket yang sesuai dengan kebutuhan Anda, dari personal hingga perusahaan besar.</p>
+            </div>
+            <div class="pricing-grid">
+                <!-- Personal Plan -->
+                <div class="pricing-card reveal">
+                    <h3 class="plan-name">Personal</h3>
+                    <div class="plan-price">Rp 50.000<span>/bulan</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check-circle"></i> Tanda Tangan Digital Unlimited</li>
+                        <li><i class="fas fa-check-circle"></i> Verifikasi Identitas</li>
+                        <li><i class="fas fa-check-circle"></i> Akses Mobile App</li>
+                        <li><i class="fas fa-times-circle" style="color: #CBD5E0;"></i> Dasbor Admin</li>
+                        <li><i class="fas fa-times-circle" style="color: #CBD5E0;"></i> Integrasi API</li>
+                    </ul>
+                    <button class="btn btn-outline">Mulai Sekarang</button>
+                </div>
+                <!-- Business Plan -->
+                <div class="pricing-card popular reveal delay-100">
+                    <div class="popular-badge">POPULAR</div>
+                    <h3 class="plan-name">Business</h3>
+                    <div class="plan-price">Rp 150.000<span>/bulan</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check-circle"></i> Semua Fitur Personal</li>
+                        <li><i class="fas fa-check-circle"></i> 5 User Team</li>
+                        <li><i class="fas fa-check-circle"></i> Dasbor Admin</li>
+                        <li><i class="fas fa-check-circle"></i> e-Meterai Support</li>
+                        <li><i class="fas fa-times-circle" style="color: #CBD5E0;"></i> Integrasi API</li>
+                    </ul>
+                    <button class="btn btn-primary">Coba Gratis 14 Hari</button>
+                </div>
+                <!-- Enterprise Plan -->
+                <div class="pricing-card reveal delay-200">
+                    <h3 class="plan-name">Enterprise</h3>
+                    <div class="plan-price">Hubungi Kami</div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check-circle"></i> Semua Fitur Business</li>
+                        <li><i class="fas fa-check-circle"></i> User Unlimited</li>
+                        <li><i class="fas fa-check-circle"></i> Integrasi API Lengkap</li>
+                        <li><i class="fas fa-check-circle"></i> Dedicated Support</li>
+                        <li><i class="fas fa-check-circle"></i> On-Premise Option</li>
+                        <li><i class="fas fa-check-circle"></i> Custom SLA & Contract</li> <!-- New Option -->
+                    </ul>
+                    <button class="btn btn-outline">Kontak Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container cta-content">
+            <h2>Siap untuk Transformasi Digital?</h2>
+            <p>Bergabunglah dengan ribuan bisnis yang telah beralih ke proses digital yang lebih cepat, aman, dan
+                efisien.</p>
+            <button class="btn btn-white">Mulai Sekarang - Gratis</button>
+        </div>
+    </section>
+
+    <!-- Chat Widget Window -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <div class="chat-logo">
+                    <i class="fas fa-fingerprint"></i>
+                </div>
+                <div class="chat-titles">
+                    <h4>Privy Support</h4>
+                    <span>Get Easy with Privy</span>
+                </div>
+            </div>
+            <button class="chat-close" onclick="toggleChat()">
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+        <div class="chat-body">
+            <div class="chat-date">Today, 4:01 PM</div>
+            <div class="chat-date"
+                style="text-align: left; margin-top: 10px; font-size: 12px; color: #718096; margin-left: 40px;">Customer
+                Support Privy</div>
+            <div class="message-row">
+                <div class="message-avatar">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <div class="message-bubble">
+                    Halo, bagaimana kami bisa membantu Anda? Jangan ragu untuk bertanya apakah ada yang ingin Anda
+                    ketahui tentang layanan kami.
+                    <span class="message-time">4:01 PM</span>
+                </div>
+            </div>
+        </div>
+        <div class="chat-footer">
+            <i class="fas fa-paperclip chat-attach"></i>
+            <input type="text" class="chat-input" placeholder="Type a message...">
+        </div>
+    </div>
+
+    <!-- Floating Live Chat Button -->
+    <div class="live-chat-btn" id="chatBtn" onclick="toggleChat()">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">
+                        <img src="privy-logo.png" alt="Privy Logo"
+                            style="height: 35px; width: auto; filter: brightness(0) invert(1);">
+                    </a>
+                    <p>Penyedia Sertifikat Elektronik (PSrE) pertama yang diakui oleh Kementerian Komunikasi dan
+                        Informatika Republik Indonesia.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Produk</h4>
+                    <ul>
+                        <li><a href="#">PrivySign</a></li>
+                        <li><a href="#">PrivyIdentity</a></li>
+                        <li><a href="#">e-Meterai</a></li>
+                        <li><a href="#">Enterprise</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Perusahaan</h4>
+                    <ul>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Karir</a></li>
+                        <li><a href="#">Hubungi Kami</a></li>
+                        <li><a href="#">Berita</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Dukungan</h4>
+                    <ul>
+                        <li><a href="#">Pusat Bantuan</a></li>
+                        <li><a href="#">Dokumentasi API</a></li>
+                        <li><a href="#">Status System</a></li>
+                        <li><a href="#">Legal</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 PT Privy Identitas Digital. Hak Cipta Dilindungi Undang-Undang.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
