@@ -9,6 +9,7 @@ import CollaborationSection from './components/CollaborationSection.vue';
 import CustomerStoriesSection from './components/CustomerStoriesSection.vue';
 import CtaSection from './components/CtaSection.vue';
 import FooterSection from './components/FooterSection.vue';
+import ChatWidget from './components/ChatWidget.vue';
 
 // Smooth scroll for anchor links
 onMounted(() => {
@@ -42,6 +43,7 @@ onMounted(() => {
         <CtaSection />
     </main>
     <FooterSection />
+    <ChatWidget />
 </template>
 
 <style>

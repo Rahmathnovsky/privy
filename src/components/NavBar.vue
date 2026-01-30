@@ -175,21 +175,28 @@ onUnmounted(() => {
                 <i :class="isMobileMenuOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
             </button>
         </div>
-        
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" :class="{ active: isMobileMenuOpen }">
-            <nav class="mobile-nav">
-                <a href="#" class="mobile-link">Platform</a>
-                <a href="#" class="mobile-link">Solutions</a>
-                <a href="#" class="mobile-link">Pricing</a>
-                <a href="#" class="mobile-link">Resources</a>
-                <div class="mobile-actions">
-                    <a href="#" class="btn btn-outline-mobile">Sign in</a>
-                    <a href="#" class="btn btn-primary-mobile">Start Free Trial</a>
-                </div>
-            </nav>
-        </div>
     </header>
+    
+    <!-- Mobile Menu (Outside Header) -->
+    <div class="mobile-menu" :class="{ active: isMobileMenuOpen }">
+        <nav class="mobile-nav">
+            <a href="#" class="mobile-link">Platform</a>
+            <a href="#" class="mobile-link">Solutions</a>
+            <a href="#" class="mobile-link">Pricing</a>
+            <a href="#" class="mobile-link">Resources</a>
+            
+            <!-- Theme Toggle in Mobile -->
+            <button class="mobile-theme-toggle" @click="toggleTheme">
+                <i :class="isDark ? 'fas fa-sun' : 'fas fa-moon'"></i>
+                <span>{{ isDark ? 'Light Mode' : 'Dark Mode' }}</span>
+            </button>
+            
+            <div class="mobile-actions">
+                <a href="#" class="btn btn-outline-mobile">Sign in</a>
+                <a href="#" class="btn btn-primary-mobile">Start Free Trial</a>
+            </div>
+        </nav>
+    </div>
 </template>
 
 <style scoped>
@@ -403,9 +410,10 @@ header.scrolled {
     display: none;
     background: none;
     border: none;
-    color: #fff;
+    color: var(--theme-text-primary);
     font-size: 24px;
     cursor: pointer;
+    z-index: 1001;
 }
 
 .mobile-menu {
@@ -415,10 +423,12 @@ header.scrolled {
     left: 0;
     right: 0;
     bottom: 0;
-    background: #1a1a1a;
+    background: var(--theme-bg-primary);
     padding: 24px;
     transform: translateX(100%);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
 }
 
 .mobile-menu.active {
@@ -433,10 +443,36 @@ header.scrolled {
 
 .mobile-link {
     padding: 16px;
-    color: #fff;
+    color: var(--theme-text-primary);
     font-size: 18px;
     font-weight: 500;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--theme-border);
+}
+
+.mobile-theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: var(--theme-bg-card);
+    border: 1px solid var(--theme-border);
+    border-radius: 12px;
+    color: var(--theme-text-primary);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 16px 0;
+    transition: all 0.3s ease;
+}
+
+.mobile-theme-toggle:hover {
+    background: var(--theme-glow-red);
+    border-color: var(--primary-red);
+}
+
+.mobile-theme-toggle i {
+    font-size: 20px;
+    color: var(--primary-red);
 }
 
 .mobile-actions {
@@ -449,8 +485,8 @@ header.scrolled {
 .btn-outline-mobile {
     padding: 14px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #fff;
+    border: 1px solid var(--theme-border-hover);
+    color: var(--theme-text-primary);
     border-radius: 8px;
     font-weight: 600;
 }
