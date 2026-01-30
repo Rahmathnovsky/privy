@@ -109,8 +109,9 @@ const features = [
 
 <style scoped>
 .collab-section {
-    background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+    background: var(--theme-bg-secondary);
     padding: 120px 0;
+    transition: background 0.3s ease;
 }
 
 /* Header */
@@ -135,13 +136,13 @@ const features = [
 .section-title {
     font-size: 48px;
     font-weight: 800;
-    color: #fff;
+    color: var(--theme-text-primary);
     margin-bottom: 16px;
 }
 
 .section-subtitle {
     font-size: 18px;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--theme-text-secondary);
     max-width: 550px;
     margin: 0 auto;
     line-height: 1.6;
@@ -199,7 +200,7 @@ const features = [
 .dots span:nth-child(3) { background: #28ca42; }
 
 .window-title {
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--theme-text-secondary);
     font-size: 12px;
 }
 
@@ -231,7 +232,7 @@ const features = [
 
 .sidebar-item.active {
     background: var(--primary-red);
-    color: #fff;
+    color: var(--theme-text-primary);
 }
 
 .dashboard-main {
@@ -297,13 +298,13 @@ const features = [
 .main-content h3 {
     font-size: 32px;
     font-weight: 700;
-    color: #fff;
+    color: var(--theme-text-primary);
     margin-bottom: 16px;
 }
 
 .main-content p {
     font-size: 16px;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--theme-text-secondary);
     line-height: 1.7;
     margin-bottom: 24px;
 }
@@ -378,14 +379,14 @@ const features = [
 .collab-card:hover .card-icon {
     transform: scale(1.1) rotate(5deg);
     background: var(--primary-red);
-    color: #fff;
+    color: var(--theme-text-primary);
     box-shadow: 0 10px 20px rgba(225, 32, 38, 0.3);
 }
 
 .collab-card h4 {
     font-size: 18px;
     font-weight: 700;
-    color: #fff;
+    color: var(--theme-text-primary);
     margin-bottom: 10px;
     position: relative;
     z-index: 1;
@@ -393,7 +394,7 @@ const features = [
 
 .collab-card p {
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--theme-text-secondary);
     line-height: 1.6;
     margin-bottom: 16px;
     position: relative;

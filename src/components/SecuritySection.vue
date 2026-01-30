@@ -94,9 +94,10 @@ const stats = [
 <style scoped>
 .security-section {
     position: relative;
-    background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
+    background: var(--theme-bg-secondary);
     padding: 120px 0;
     overflow: hidden;
+    transition: background 0.3s ease;
 }
 
 .container {
@@ -126,7 +127,7 @@ const stats = [
 .section-title {
     font-size: 48px;
     font-weight: 800;
-    color: #fff;
+    color: var(--theme-text-primary);
     margin-bottom: 16px;
     line-height: 1.2;
 }
@@ -137,7 +138,7 @@ const stats = [
 
 .section-subtitle {
     font-size: 18px;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--theme-text-secondary);
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
@@ -169,13 +170,13 @@ const stats = [
 .main-feature-card h3 {
     font-size: 36px;
     font-weight: 700;
-    color: #fff;
+    color: var(--theme-text-primary);
     margin-bottom: 16px;
 }
 
 .main-feature-card > p {
     font-size: 18px;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--theme-text-secondary);
     max-width: 600px;
     margin: 0 auto 32px;
     line-height: 1.6;
@@ -220,7 +221,7 @@ const stats = [
 
 .stat-label {
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--theme-text-muted);
 }
 
 /* Security Grid */
@@ -280,14 +281,14 @@ const stats = [
 .security-card:hover .card-icon {
     transform: scale(1.1) rotate(5deg);
     background: var(--primary-red);
-    color: #fff;
+    color: var(--theme-text-primary);
     box-shadow: 0 10px 20px rgba(225, 32, 38, 0.3);
 }
 
 .security-card h4 {
     font-size: 20px;
     font-weight: 700;
-    color: #fff;
+    color: var(--theme-text-primary);
     margin-bottom: 12px;
     position: relative;
     z-index: 1;
@@ -295,7 +296,7 @@ const stats = [
 
 .security-card p {
     font-size: 15px;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--theme-text-secondary);
     line-height: 1.6;
     margin-bottom: 20px;
     position: relative;

@@ -114,8 +114,9 @@
 <style scoped>
 .footer-wrapper {
     position: relative;
-    background: linear-gradient(180deg, #0d0d0d 0%, #080808 100%);
+    background: var(--theme-bg-primary);
     overflow: hidden;
+    transition: background 0.3s ease;
 }
 
 /* 3D Floating Card */
@@ -129,14 +130,14 @@
 
 .floating-card {
     position: relative;
-    background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
-    border: 1px solid rgba(225, 32, 38, 0.3);
+    background: var(--theme-bg-card);
+    border: 1px solid var(--theme-glow-red);
     border-radius: 20px;
     padding: 40px 60px;
     box-shadow: 
-        0 25px 50px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(225, 32, 38, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        0 25px 50px rgba(0, 0, 0, 0.2),
+        0 0 0 1px var(--theme-glow-red),
+        inset 0 1px 0 var(--theme-border);
     transform: perspective(1000px) rotateX(2deg);
     transition: all 0.4s ease;
 }
@@ -144,9 +145,9 @@
 .floating-card:hover {
     transform: perspective(1000px) rotateX(0deg) translateY(-5px);
     box-shadow: 
-        0 35px 70px rgba(0, 0, 0, 0.6),
-        0 0 60px rgba(225, 32, 38, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        0 35px 70px rgba(0, 0, 0, 0.3),
+        0 0 60px var(--theme-glow-red),
+        inset 0 1px 0 var(--theme-border-hover);
 }
 
 .card-glow {
@@ -172,7 +173,7 @@
 .card-text h3 {
     font-size: 28px;
     font-weight: 700;
-    color: #fff;
+    color: var(--theme-text-primary);
     margin-bottom: 8px;
 }
 
@@ -181,7 +182,7 @@
 }
 
 .card-text p {
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--theme-text-secondary);
     font-size: 16px;
 }
 
@@ -191,7 +192,7 @@
     gap: 8px;
     padding: 16px 32px;
     background: var(--primary-red);
-    color: #fff;
+    color: var(--theme-text-primary);
     border-radius: 8px;
     font-size: 16px;
     font-weight: 600;
@@ -246,19 +247,19 @@
 .company-details h5 {
     font-size: 16px;
     font-weight: 600;
-    color: #fff;
+    color: var(--theme-text-primary);
     margin-bottom: 12px;
 }
 
 .company-details p {
     font-size: 13px;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--theme-text-muted);
     line-height: 1.6;
     margin-bottom: 12px;
 }
 
 .email-link {
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--theme-text-secondary);
     font-size: 14px;
     transition: color 0.2s ease;
 }
@@ -282,14 +283,14 @@
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--theme-text-secondary);
     transition: all 0.2s ease;
 }
 
 .social-links a:hover {
     background: var(--primary-red);
     border-color: var(--primary-red);
-    color: #fff;
+    color: var(--theme-text-primary);
     transform: translateY(-2px);
 }
 
@@ -311,7 +312,7 @@
 .footer-col h4 {
     font-size: 14px;
     font-weight: 700;
-    color: #fff;
+    color: var(--theme-text-primary);
     margin-bottom: 20px;
 }
 
@@ -326,7 +327,7 @@
 }
 
 .footer-col a {
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--theme-text-muted);
     font-size: 14px;
     transition: all 0.2s ease;
 }
@@ -360,7 +361,7 @@
 }
 
 .copyright {
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--theme-text-muted);
     font-size: 13px;
 }
 

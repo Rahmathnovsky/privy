@@ -132,9 +132,10 @@ const resumeAnimation = () => {
 
 <style scoped>
 .stories-section {
-    background: #0d0d0d;
+    background: var(--theme-bg-primary);
     padding: 120px 0;
     overflow: hidden;
+    transition: background 0.3s ease;
 }
 
 /* Header */
@@ -148,7 +149,7 @@ const resumeAnimation = () => {
 .section-title {
     font-size: 40px;
     font-weight: 800;
-    color: #fff;
+    color: var(--theme-text-primary);
     line-height: 1.3;
 }
 
@@ -270,7 +271,7 @@ const resumeAnimation = () => {
     border-radius: 6px;
     font-size: 12px;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--theme-text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
@@ -278,7 +279,7 @@ const resumeAnimation = () => {
 
 .story-card:hover .industry-tag {
     background: var(--primary-red);
-    color: #fff;
+    color: var(--theme-text-primary);
     box-shadow: 0 5px 15px rgba(225, 32, 38, 0.3);
 }
 
@@ -306,7 +307,7 @@ const resumeAnimation = () => {
 .quote {
     font-size: 18px;
     font-weight: 500;
-    color: #fff;
+    color: var(--theme-text-primary);
     line-height: 1.5;
 }
 
@@ -343,14 +344,14 @@ const resumeAnimation = () => {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--theme-text-secondary);
     font-size: 15px;
     font-weight: 500;
     transition: all 0.3s ease;
 }
 
 .solutions-link a:hover {
-    color: #fff;
+    color: var(--theme-text-primary);
 }
 
 /* Responsive */

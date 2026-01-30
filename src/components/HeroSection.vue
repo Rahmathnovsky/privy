@@ -103,11 +103,8 @@ onMounted(() => {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, 
-        #0d0d0d 0%, 
-        #1a1a1a 30%, 
-        #2a1215 60%, 
-        #1a0808 100%);
+    background: var(--theme-bg-primary);
+    transition: background 0.3s ease;
 }
 
 .hero-glow {
@@ -118,8 +115,8 @@ onMounted(() => {
     width: 1000px;
     height: 1000px;
     background: radial-gradient(circle, 
-        rgba(225, 32, 38, 0.3) 0%, 
-        rgba(225, 32, 38, 0.12) 35%, 
+        var(--theme-glow-red-strong) 0%, 
+        var(--theme-glow-red) 35%, 
         transparent 65%);
     animation: pulse 4s ease-in-out infinite;
 }
@@ -180,8 +177,8 @@ onMounted(() => {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: rgba(225, 32, 38, 0.1);
-    border: 1px solid rgba(225, 32, 38, 0.3);
+    background: var(--theme-glow-red);
+    border: 1px solid var(--primary-red);
     padding: 8px 20px;
     border-radius: 50px;
     margin-bottom: 32px;
@@ -193,7 +190,7 @@ onMounted(() => {
 }
 
 .hero-badge span {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--theme-text-primary);
     font-size: 14px;
     font-weight: 500;
 }
@@ -202,7 +199,7 @@ onMounted(() => {
     font-size: 80px;
     font-weight: 800;
     line-height: 1.1;
-    color: #fff;
+    color: var(--theme-text-primary);
     margin-bottom: 24px;
     letter-spacing: -2px;
 }
@@ -223,7 +220,7 @@ onMounted(() => {
 
 .hero-description {
     font-size: 20px;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--theme-text-secondary);
     line-height: 1.6;
     max-width: 650px;
     margin: 0 auto 40px;
@@ -241,7 +238,7 @@ onMounted(() => {
     align-items: center;
     gap: 10px;
     background: var(--primary-red);
-    color: #fff;
+    color: var(--theme-text-primary);
     padding: 16px 32px;
     border-radius: 8px;
     font-size: 16px;
@@ -269,12 +266,12 @@ onMounted(() => {
     align-items: center;
     gap: 10px;
     background: transparent;
-    color: #fff;
+    color: var(--theme-text-primary);
     padding: 16px 32px;
     border-radius: 8px;
     font-size: 16px;
     font-weight: 600;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid var(--theme-border-hover);
     transition: all 0.3s ease;
 }
 
@@ -301,7 +298,7 @@ onMounted(() => {
 .stat-number {
     font-size: 32px;
     font-weight: 800;
-    color: #fff;
+    color: var(--theme-text-primary);
 }
 
 .stat-label {

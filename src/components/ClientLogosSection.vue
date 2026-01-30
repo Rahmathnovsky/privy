@@ -92,11 +92,12 @@ const handleMouseLeave = (event) => {
 
 <style scoped>
 .clients-section {
-    background: #0d0d0d;
+    background: var(--theme-bg-primary);
     padding: 80px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid var(--theme-border);
+    border-bottom: 1px solid var(--theme-border);
     overflow: hidden;
+    transition: background 0.3s ease;
 }
 
 .section-header {
@@ -105,7 +106,7 @@ const handleMouseLeave = (event) => {
 }
 
 .trust-text {
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--theme-text-muted);
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 2px;

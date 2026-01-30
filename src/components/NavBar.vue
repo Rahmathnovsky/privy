@@ -1,5 +1,8 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import { useTheme } from '../composables/useTheme.js';
+
+const { isDark, toggleTheme } = useTheme();
 
 const isScrolled = ref(false);
 const isMobileMenuOpen = ref(false);
@@ -160,6 +163,9 @@ onUnmounted(() => {
             </div>
             
             <div class="nav-right">
+                <button class="theme-toggle" @click="toggleTheme" :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
+                    <i :class="isDark ? 'fas fa-sun' : 'fas fa-moon'"></i>
+                </button>
                 <a href="#" class="nav-link sign-in">Sign in</a>
                 <a href="#" class="btn btn-nav-primary">Start Free Trial</a>
             </div>
@@ -193,16 +199,16 @@ header {
     left: 0;
     right: 0;
     height: 64px;
-    background: rgba(26, 26, 26, 0.8);
+    background: var(--theme-nav-bg);
     backdrop-filter: blur(12px);
     z-index: 1000;
     transition: all 0.3s ease;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--theme-border);
 }
 
 header.scrolled {
-    background: rgba(26, 26, 26, 0.95);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    background: var(--theme-nav-bg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .navbar {
@@ -238,7 +244,7 @@ header.scrolled {
     align-items: center;
     gap: 6px;
     padding: 8px 16px;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--theme-text-secondary);
     font-size: 14px;
     font-weight: 500;
     border-radius: 6px;
@@ -247,8 +253,8 @@ header.scrolled {
 }
 
 .nav-link:hover {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.1);
+    color: var(--theme-text-primary);
+    background: var(--theme-bg-card-hover);
 }
 
 .nav-link i {
@@ -267,14 +273,14 @@ header.scrolled {
     left: 50%;
     transform: translateX(-50%) translateY(10px);
     min-width: 600px;
-    background: #1a1a1a;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--theme-bg-secondary);
+    border: 1px solid var(--theme-border);
     border-radius: 12px;
     padding: 24px;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 
 .mega-dropdown.active {
@@ -292,7 +298,7 @@ header.scrolled {
 .dropdown-column h4 {
     font-size: 11px;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--theme-text-muted);
     letter-spacing: 1px;
     margin-bottom: 16px;
     padding-left: 8px;
@@ -308,7 +314,7 @@ header.scrolled {
 }
 
 .dropdown-item:hover {
-    background: rgba(225, 32, 38, 0.1);
+    background: var(--theme-glow-red);
 }
 
 .dropdown-item i {
@@ -317,7 +323,7 @@ header.scrolled {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(225, 32, 38, 0.15);
+    background: var(--theme-glow-red);
     color: var(--primary-red);
     border-radius: 8px;
     font-size: 14px;
@@ -330,13 +336,13 @@ header.scrolled {
 }
 
 .dropdown-item strong {
-    color: #fff;
+    color: var(--theme-text-primary);
     font-size: 14px;
     font-weight: 500;
 }
 
 .dropdown-item span {
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--theme-text-muted);
     font-size: 12px;
 }
 
@@ -347,8 +353,34 @@ header.scrolled {
     gap: 16px;
 }
 
+.theme-toggle {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--theme-bg-card);
+    border: 1px solid var(--theme-border);
+    border-radius: 8px;
+    color: var(--theme-text-secondary);
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--theme-bg-card-hover);
+    color: var(--primary-red);
+    border-color: var(--primary-red);
+    transform: rotate(15deg);
+}
+
 .sign-in {
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--theme-text-secondary);
+}
+
+.sign-in:hover {
+    color: var(--theme-text-primary);
 }
 
 .btn-nav-primary {

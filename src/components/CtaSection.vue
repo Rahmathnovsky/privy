@@ -29,9 +29,10 @@
 <style scoped>
 .cta-section {
     position: relative;
-    background: linear-gradient(180deg, #0d0d0d 0%, #1a0808 50%, #0d0d0d 100%);
+    background: var(--theme-bg-secondary);
     padding: 160px 0;
     overflow: hidden;
+    transition: background 0.3s ease;
 }
 
 .cta-content {
@@ -45,14 +46,14 @@
 .cta-content h2 {
     font-size: 52px;
     font-weight: 800;
-    color: #fff;
+    color: var(--theme-text-primary);
     margin-bottom: 24px;
     line-height: 1.2;
 }
 
 .cta-content p {
     font-size: 20px;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--theme-text-secondary);
     line-height: 1.6;
     margin-bottom: 48px;
 }
@@ -76,7 +77,7 @@
 
 .btn-cta-primary {
     background: var(--primary-red);
-    color: #fff;
+    color: var(--theme-text-primary);
     box-shadow: 0 4px 30px rgba(225, 32, 38, 0.4);
 }
 
@@ -96,7 +97,7 @@
 
 .btn-cta-secondary {
     background: transparent;
-    color: #fff;
+    color: var(--theme-text-primary);
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 

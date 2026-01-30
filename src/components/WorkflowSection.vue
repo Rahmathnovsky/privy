@@ -152,8 +152,9 @@ const getActiveFeature = () => {
 
 <style scoped>
 .workflow-section {
-    background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 50%, #0d0d0d 100%);
+    background: var(--theme-bg-primary);
     padding: 120px 0;
+    transition: background 0.3s ease;
 }
 
 .section-header-container {
@@ -177,14 +178,14 @@ const getActiveFeature = () => {
 .section-title {
     font-size: 48px;
     font-weight: 800;
-    color: #fff;
+    color: var(--theme-text-primary);
     margin-bottom: 16px;
     letter-spacing: -1px;
 }
 
 .section-subtitle {
     font-size: 18px;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--theme-text-secondary);
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
@@ -256,7 +257,7 @@ const getActiveFeature = () => {
     justify-content: center;
     background: rgba(255, 255, 255, 0.08);
     border-radius: 12px;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--theme-text-secondary);
     font-size: 20px;
     transition: all 0.3s ease;
 }
@@ -269,7 +270,7 @@ const getActiveFeature = () => {
 
 .feature-nav-item.active .nav-icon {
     background: var(--primary-red);
-    color: #fff;
+    color: var(--theme-text-primary);
     box-shadow: 0 4px 12px rgba(225, 32, 38, 0.3);
 }
 
@@ -281,13 +282,13 @@ const getActiveFeature = () => {
 }
 
 .nav-text strong {
-    color: #fff;
+    color: var(--theme-text-primary);
     font-size: 16px;
     font-weight: 600;
 }
 
 .nav-text span {
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--theme-text-muted);
     font-size: 13px;
     transition: color 0.3s ease;
 }
@@ -343,13 +344,13 @@ const getActiveFeature = () => {
 .feature-display h3 {
     font-size: 32px;
     font-weight: 700;
-    color: #fff;
+    color: var(--theme-text-primary);
     margin-bottom: 16px;
 }
 
 .feature-display p {
     font-size: 16px;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--theme-text-secondary);
     line-height: 1.7;
     margin-bottom: 32px;
 }
@@ -372,7 +373,7 @@ const getActiveFeature = () => {
 
 .stat-label {
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--theme-text-muted);
 }
 
 .feature-link {
@@ -477,7 +478,7 @@ blockquote {
 
 cite {
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--theme-text-muted);
     font-style: normal;
     margin-left: 24px;
 }
