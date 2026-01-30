@@ -1,111 +1,396 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted } from 'vue';
 
-const currentSlide = ref(0);
-const totalSlides = 2;
-let slideInterval;
-
-const goToSlide = (index) => {
-    currentSlide.value = index;
-    resetTimer();
-};
-
-const nextSlide = () => {
-    currentSlide.value = (currentSlide.value + 1) % totalSlides;
-};
-
-const resetTimer = () => {
-    clearInterval(slideInterval);
-    slideInterval = setInterval(nextSlide, 5000);
-};
+const isVisible = ref(false);
 
 onMounted(() => {
-    resetTimer();
-});
-
-onUnmounted(() => {
-    clearInterval(slideInterval);
+    setTimeout(() => {
+        isVisible.value = true;
+    }, 100);
 });
 </script>
 
 <template>
-    <section class="hero-carousel">
-        <div class="carousel-track" :style="{ transform: `translateX(-${currentSlide * 50}%)` }">
-            <!-- Slide 1: Personal (Red Theme) -->
-            <div class="carousel-slide slide-1">
-                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
-                    class="slide-bg" alt="Bg">
-                <div class="slide-overlay"></div>
-                <div class="container hero-container">
-                    <div class="hero-text-content">
-                        <div class="tag-pill">
-                            <i class="fas fa-check-circle"></i> The World's Trusted Digital Identity
-                        </div>
-                        <h1>Privy Personal Plan: Your Identity, Your Signature</h1>
-                        <p>One subscription for secure signing, storing, verifying, and applying digital seals in your
-                            documents anytime, anywhere.</p>
-                        <a href="#" class="btn-glow">Get Privy Personal Plan <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="hero-visuals">
-                        <div class="float-card card-1">
-                            <i class="fas fa-file-signature"></i>
-                            <span>Unlimited Sign</span>
-                        </div>
-                        <div class="float-card card-2">
-                            <i class="fas fa-hdd"></i>
-                            <span>Secure Storage</span>
-                        </div>
-                        <div class="float-card card-3">
-                            <i class="fas fa-cloud-upload-alt"></i>
-                            <span>Upload & Send Freely</span>
-                        </div>
-                        <div class="video-thumbnail">
-                            <div class="play-btn"><i class="fas fa-play"></i></div>
-                            <div class="vid-text">
-                                <span>Why Millions Trust Privy</span>
-                                <p>See how Privy simplifies digital trust.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <section class="hero-section">
+        <!-- Animated Background -->
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
+            <div class="hero-glow"></div>
+            <div class="hero-lines">
+                <div class="line" v-for="n in 5" :key="n"></div>
             </div>
-
-            <!-- Slide 2: Business (Blue/Dark Theme) -->
-            <div class="carousel-slide slide-2">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
-                    class="slide-bg" alt="Bg">
-                <div class="slide-overlay"></div>
-                <div class="container hero-container">
-                    <div class="hero-text-content">
-                        <div class="tag-pill" style="border-color: #4299E1; background: rgba(66, 153, 225, 0.1);">
-                            <i class="fas fa-building" style="color: #4299E1;"></i> Trusted by 1,800+ Global Companies
-                        </div>
-                        <h1>Build Digital Trust at Every Step of Business</h1>
-                        <p>Verify identities, onboard users, and secure high-volume transactions with our
-                            regulatory-grade infrastructure.</p>
-                        <a href="#" class="btn-glow">Contact Sales for Business <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="hero-visuals">
-                        <div class="float-card card-1">
-                            <i class="fas fa-users-cog"></i>
-                            <span>User Management</span>
-                        </div>
-                        <div class="float-card card-2">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>Enterprise Security</span>
-                        </div>
-                        <div class="float-card card-3">
-                            <i class="fas fa-plug"></i>
-                            <span>API Integration</span>
-                        </div>
-                    </div>
+        </div>
+        
+        <!-- Hero Content -->
+        <div class="container hero-content" :class="{ visible: isVisible }">
+            <div class="hero-badge">
+                <i class="fas fa-certificate"></i>
+                <span>Indonesia's First Licensed PSrE Provider</span>
+            </div>
+            
+            <h1 class="hero-title">
+                Digital Trust<br>
+                <span class="gradient-text">Starts Here</span>
+            </h1>
+            
+            <p class="hero-description">
+                With Privy, individuals and businesses come together on one platform 
+                for secure digital signatures, identity verification, and document management.
+            </p>
+            
+            <div class="hero-actions">
+                <a href="#" class="btn btn-hero-primary">
+                    Start Free Trial
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#" class="btn btn-hero-secondary">
+                    Contact Sales
+                </a>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">60M+</span>
+                    <span class="stat-label">Documents Signed</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number">1,800+</span>
+                    <span class="stat-label">Enterprise Clients</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number">40M+</span>
+                    <span class="stat-label">Verified Users</span>
                 </div>
             </div>
         </div>
-        <!-- Navigation -->
-        <div class="carousel-nav">
-            <div class="nav-dot" :class="{ active: currentSlide === 0 }" @click="goToSlide(0)"></div>
-            <div class="nav-dot" :class="{ active: currentSlide === 1 }" @click="goToSlide(1)"></div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
         </div>
     </section>
 </template>
+
+<style scoped>
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 64px;
+}
+
+/* Animated Background */
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.hero-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        #0d0d0d 0%, 
+        #1a1a1a 30%, 
+        #2a1215 60%, 
+        #1a0808 100%);
+}
+
+.hero-glow {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1000px;
+    height: 1000px;
+    background: radial-gradient(circle, 
+        rgba(225, 32, 38, 0.3) 0%, 
+        rgba(225, 32, 38, 0.12) 35%, 
+        transparent 65%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+    50% { opacity: 1; transform: translateX(-50%) scale(1.15); }
+}
+
+.hero-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.line {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+        transparent 0%, 
+        rgba(225, 32, 38, 0.2) 50%, 
+        transparent 100%);
+    animation: lineFade 3s ease-in-out infinite;
+}
+
+.line:nth-child(1) { left: 20%; animation-delay: 0s; }
+.line:nth-child(2) { left: 40%; animation-delay: 0.5s; }
+.line:nth-child(3) { left: 50%; animation-delay: 1s; }
+.line:nth-child(4) { left: 60%; animation-delay: 1.5s; }
+.line:nth-child(5) { left: 80%; animation-delay: 2s; }
+
+@keyframes lineFade {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.3; }
+}
+
+/* Hero Content */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 900px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.hero-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(225, 32, 38, 0.1);
+    border: 1px solid rgba(225, 32, 38, 0.3);
+    padding: 8px 20px;
+    border-radius: 50px;
+    margin-bottom: 32px;
+}
+
+.hero-badge i {
+    color: var(--primary-red);
+    font-size: 14px;
+}
+
+.hero-badge span {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.hero-title {
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 24px;
+    letter-spacing: -2px;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--primary-red), #ff6b6b, var(--primary-red));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.hero-description {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    max-width: 650px;
+    margin: 0 auto 40px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.btn-hero-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--primary-red);
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(225, 32, 38, 0.3);
+}
+
+.btn-hero-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(225, 32, 38, 0.4);
+}
+
+.btn-hero-primary i {
+    transition: transform 0.3s ease;
+}
+
+.btn-hero-primary:hover i {
+    transform: translateX(4px);
+}
+
+.btn-hero-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-hero-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Stats */
+.hero-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.stat-number {
+    font-size: 32px;
+    font-weight: 800;
+    color: #fff;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.stat-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.mouse {
+    width: 24px;
+    height: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+}
+
+.wheel {
+    width: 4px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+    animation: scrollWheel 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollWheel {
+    0%, 100% { opacity: 1; transform: translateY(0); }
+    50% { opacity: 0.3; transform: translateY(6px); }
+}
+
+.scroll-indicator span {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 48px;
+        letter-spacing: -1px;
+    }
+    
+    .hero-description {
+        font-size: 16px;
+        padding: 0 20px;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 24px;
+    }
+    
+    .stat-divider {
+        display: none;
+    }
+    
+    .scroll-indicator {
+        display: none;
+    }
+}
+</style>
+

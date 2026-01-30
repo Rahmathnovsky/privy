@@ -2,58 +2,58 @@
 import { onMounted } from 'vue';
 import NavBar from './components/NavBar.vue';
 import HeroSection from './components/HeroSection.vue';
-import StatsSection from './components/StatsSection.vue';
-import ClientMarquee from './components/ClientMarquee.vue';
-import SolutionTabs from './components/SolutionTabs.vue';
-import FeaturesSection from './components/FeaturesSection.vue';
-import PricingSection from './components/PricingSection.vue';
+import ClientLogosSection from './components/ClientLogosSection.vue';
+import WorkflowSection from './components/WorkflowSection.vue';
+import SecuritySection from './components/SecuritySection.vue';
+import CollaborationSection from './components/CollaborationSection.vue';
+import CustomerStoriesSection from './components/CustomerStoriesSection.vue';
 import CtaSection from './components/CtaSection.vue';
 import FooterSection from './components/FooterSection.vue';
-import ChatWidget from './components/ChatWidget.vue';
 
-// Scroll Animation Observer (Global)
+// Smooth scroll for anchor links
 onMounted(() => {
-    // We delay slightly to ensure DOM is rendered, though onMounted should suffice.
-    // However, dynamic components might need nextTick. For this static structure, it's fine.
-    
-    // Select all elements that have the 'reveal' class
-    // Note: Components must have 'reveal' class on their root or inner elements.
-    // I added 'reveal' to the root sections in the components where appropriate.
-    const revealElements = document.querySelectorAll('.reveal');
-    
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href !== '#') {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             }
         });
-    }, {
-        threshold: 0.1
     });
-
-    revealElements.forEach(el => revealObserver.observe(el));
 });
 </script>
 
 <template>
-  <NavBar />
-  <main>
-      <HeroSection />
-      <StatsSection />
-      <ClientMarquee />
-      <SolutionTabs />
-      <FeaturesSection />
-      <PricingSection />
-      <CtaSection />
-  </main>
-  <FooterSection />
-  <ChatWidget />
+    <NavBar />
+    <main>
+        <HeroSection />
+        <ClientLogosSection />
+        <WorkflowSection />
+        <SecuritySection />
+        <CollaborationSection />
+        <CustomerStoriesSection />
+        <CtaSection />
+    </main>
+    <FooterSection />
 </template>
 
 <style>
-/* Global resets are in style.css, checking imports */
-/* #app is the root, usually we want it to take full width */
+/* Import global styles */
+@import './style.css';
+
 #app {
     width: 100%;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
 }
 </style>

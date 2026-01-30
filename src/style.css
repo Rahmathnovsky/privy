@@ -29,8 +29,8 @@
 }
 
 body {
-    background-color: var(--bg-white);
-    color: var(--text-dark);
+    background-color: #0d0d0d;
+    color: #fff;
     line-height: 1.6;
     overflow-x: hidden;
     margin: 0;
