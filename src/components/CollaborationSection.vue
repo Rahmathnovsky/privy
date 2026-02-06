@@ -1,4 +1,9 @@
 <script setup>
+import { onMounted } from 'vue';
+import { useScrollAnimations } from '../composables/useScrollAnimations';
+
+const { fadeIn, staggerIn, parallax } = useScrollAnimations();
+
 const features = [
     {
         icon: 'fas fa-folder-open',
@@ -25,6 +30,26 @@ const features = [
         link: 'Explore Version Control'
     }
 ];
+
+onMounted(() => {
+    // Fade in section header
+    const header = document.querySelector('.collab-section .collab-header');
+    if (header) {
+        fadeIn(header, { y: 40 });
+    }
+
+    // Stagger collaboration cards
+    const cards = document.querySelectorAll('.collab-card');
+    if (cards.length) {
+        staggerIn(cards, { y: 50, stagger: 0.12 });
+    }
+
+    // Parallax on visual window
+    const window = document.querySelector('.collab-visual-window');
+    if (window) {
+        parallax(window, { yPercent: -15 });
+    }
+});
 </script>
 
 <template>
@@ -33,7 +58,7 @@ const features = [
             <!-- Header -->
             <div class="collab-header">
                 <span class="section-label">Collaboration</span>
-                <h2 class="section-title">Work Together, Achieve More</h2>
+                <h2 class="section-title"><span class="text-highlight">Work Together,</span> Achieve More</h2>
                 <p class="section-subtitle">
                     From planning and discussion to final approval, 
                     Privy keeps your team's communication and documents in sync.

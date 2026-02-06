@@ -6,10 +6,12 @@ import ClientLogosSection from './components/ClientLogosSection.vue';
 import WorkflowSection from './components/WorkflowSection.vue';
 import SecuritySection from './components/SecuritySection.vue';
 import CollaborationSection from './components/CollaborationSection.vue';
+import PricingSection from './components/PricingSection.vue';
 import CustomerStoriesSection from './components/CustomerStoriesSection.vue';
 import CtaSection from './components/CtaSection.vue';
 import FooterSection from './components/FooterSection.vue';
 import ChatWidget from './components/ChatWidget.vue';
+import SplashCursor from './components/SplashCursor.vue';
 
 // Smooth scroll for anchor links
 onMounted(() => {
@@ -39,11 +41,13 @@ onMounted(() => {
         <WorkflowSection />
         <SecuritySection />
         <CollaborationSection />
+        <PricingSection />
         <CustomerStoriesSection />
         <CtaSection />
     </main>
     <FooterSection />
     <ChatWidget />
+    <SplashCursor />
 </template>
 
 <style>

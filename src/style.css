@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
 :root {
     /* Privy Brand Colors */
     --primary-red: #E12026;
@@ -37,6 +39,7 @@
     --theme-glow-red: rgba(225, 32, 38, 0.15);
     --theme-glow-red-strong: rgba(225, 32, 38, 0.3);
     --theme-nav-bg: rgba(13, 13, 13, 0.9);
+    --theme-red-contrast: #ffffff;
 }
 
 /* Light Theme */
@@ -54,13 +57,18 @@
     --theme-glow-red: rgba(225, 32, 38, 0.08);
     --theme-glow-red-strong: rgba(225, 32, 38, 0.15);
     --theme-nav-bg: rgba(255, 255, 255, 0.95);
+    --theme-red-contrast: var(--primary-red);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.text-highlight {
+    color: var(--theme-red-contrast);
 }
 
 body {

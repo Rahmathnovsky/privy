@@ -1,3 +1,24 @@
+<script setup>
+import { onMounted } from 'vue';
+import { useScrollAnimations } from '../composables/useScrollAnimations';
+
+const { scaleUp, glowPulse } = useScrollAnimations();
+
+onMounted(() => {
+    // Scale up CTA content
+    const ctaContent = document.querySelector('.cta-content');
+    if (ctaContent) {
+        scaleUp(ctaContent, { scale: 0.9, duration: 1 });
+    }
+
+    // Pulsing glow effect
+    const glow = document.querySelector('.cta-bg .glow');
+    if (glow) {
+        glowPulse(glow);
+    }
+});
+</script>
+
 <template>
     <section class="cta-section">
         <div class="container">
@@ -29,7 +50,7 @@
 <style scoped>
 .cta-section {
     position: relative;
-    background: var(--theme-bg-secondary);
+    background: var(--theme-bg-primary);
     padding: 160px 0;
     overflow: hidden;
     transition: background 0.3s ease;
@@ -77,7 +98,7 @@
 
 .btn-cta-primary {
     background: var(--primary-red);
-    color: var(--theme-text-primary);
+    color: #fff;
     box-shadow: 0 4px 30px rgba(225, 32, 38, 0.4);
 }
 
@@ -98,15 +119,15 @@
 .btn-cta-secondary {
     background: transparent;
     color: var(--theme-text-primary);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid var(--theme-border);
 }
 
 .btn-cta-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.5);
+    background: var(--theme-bg-tertiary);
+    border-color: var(--theme-border-hover);
 }
 
-/* Background */
+/* Background - softer glow that blends */
 .cta-bg {
     position: absolute;
     top: 0;
@@ -121,15 +142,15 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 1000px;
-    height: 1000px;
-    background: radial-gradient(circle, rgba(225, 32, 38, 0.35) 0%, rgba(225, 32, 38, 0.15) 30%, transparent 60%);
-    animation: pulse 4s ease-in-out infinite;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(225, 32, 38, 0.12) 0%, rgba(225, 32, 38, 0.05) 40%, transparent 70%);
+    animation: pulse 6s ease-in-out infinite;
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
-    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
+    0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
 }
 
 /* Responsive */

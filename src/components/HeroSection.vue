@@ -1,12 +1,26 @@
 <script setup>
 import { ref, onMounted } from 'vue';
+import { useScrollAnimations } from '../composables/useScrollAnimations';
 
 const isVisible = ref(false);
+const { parallax, gsap } = useScrollAnimations();
 
 onMounted(() => {
     setTimeout(() => {
         isVisible.value = true;
     }, 100);
+
+    // Parallax effect on hero glow
+    const heroGlow = document.querySelector('.hero-glow');
+    if (heroGlow) {
+        parallax(heroGlow, { yPercent: -20 });
+    }
+
+    // Parallax on hero lines
+    const heroLines = document.querySelector('.hero-lines');
+    if (heroLines) {
+        parallax(heroLines, { yPercent: -10 });
+    }
 });
 </script>
 
@@ -238,7 +252,7 @@ onMounted(() => {
     align-items: center;
     gap: 10px;
     background: var(--primary-red);
-    color: var(--theme-text-primary);
+    color: #fff;
     padding: 16px 32px;
     border-radius: 8px;
     font-size: 16px;
@@ -303,13 +317,13 @@ onMounted(() => {
 
 .stat-label {
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--theme-red-contrast);
 }
 
 .stat-divider {
     width: 1px;
     height: 40px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(225, 32, 38, 0.2);
 }
 
 /* Scroll Indicator */
@@ -328,7 +342,7 @@ onMounted(() => {
 .mouse {
     width: 24px;
     height: 40px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid var(--theme-red-contrast);
     border-radius: 12px;
     display: flex;
     justify-content: center;
@@ -338,7 +352,7 @@ onMounted(() => {
 .wheel {
     width: 4px;
     height: 8px;
-    background: rgba(255, 255, 255, 0.5);
+    background: var(--theme-red-contrast);
     border-radius: 2px;
     animation: scrollWheel 1.5s ease-in-out infinite;
 }
@@ -349,7 +363,7 @@ onMounted(() => {
 }
 
 .scroll-indicator span {
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--theme-red-contrast);
     font-size: 12px;
     letter-spacing: 1px;
 }

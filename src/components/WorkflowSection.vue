@@ -1,7 +1,9 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import { useScrollAnimations } from '../composables/useScrollAnimations';
 
 const activeFeature = ref('privysign');
+const { fadeIn, staggerIn, slideInLeft } = useScrollAnimations();
 
 const features = [
     {
@@ -58,6 +60,32 @@ const setActiveFeature = (id) => {
 const getActiveFeature = () => {
     return features.find(f => f.id === activeFeature.value);
 };
+
+onMounted(() => {
+    // Slide in section header
+    const header = document.querySelector('.workflow-section .section-header-container');
+    if (header) {
+        slideInLeft(header);
+    }
+
+    // Stagger animate feature nav items
+    const navItems = document.querySelectorAll('.feature-nav-item');
+    if (navItems.length) {
+        staggerIn(navItems, { stagger: 0.1, y: 40 });
+    }
+
+    // Fade in feature content
+    const featureContent = document.querySelector('.feature-content');
+    if (featureContent) {
+        fadeIn(featureContent, { y: 30, duration: 0.8 });
+    }
+
+    // Fade in customer highlight
+    const highlightCard = document.querySelector('.highlight-card');
+    if (highlightCard) {
+        fadeIn(highlightCard, { y: 40 });
+    }
+});
 </script>
 
 <template>
@@ -65,7 +93,7 @@ const getActiveFeature = () => {
         <div class="section-header-container">
             <div class="container">
                 <span class="section-label">Privy Platform</span>
-                <h2 class="section-title">Accelerate Your Digital Workflow</h2>
+                <h2 class="section-title"><span class="text-highlight">Accelerate Your</span> Digital Workflow</h2>
                 <p class="section-subtitle">
                     From your first signature to enterprise-wide deployment, 
                     Privy provides tools to help you work faster and more securely.
@@ -270,7 +298,7 @@ const getActiveFeature = () => {
 
 .feature-nav-item.active .nav-icon {
     background: var(--primary-red);
-    color: var(--theme-text-primary);
+    color: #fff;
     box-shadow: 0 4px 12px rgba(225, 32, 38, 0.3);
 }
 
@@ -368,7 +396,7 @@ const getActiveFeature = () => {
 .stat-value {
     font-size: 36px;
     font-weight: 800;
-    color: var(--primary-red);
+    color: var(--theme-text-primary);
 }
 
 .stat-label {
@@ -449,8 +477,8 @@ const getActiveFeature = () => {
     align-items: center;
     justify-content: space-between;
     padding: 40px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--theme-glow-red);
+    border: 1px solid rgba(225, 32, 38, 0.2);
     border-radius: 16px;
 }
 
@@ -471,7 +499,7 @@ const getActiveFeature = () => {
 
 blockquote {
     font-size: 18px;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--theme-text-primary);
     font-style: italic;
     max-width: 600px;
 }

@@ -1,5 +1,8 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import { useScrollAnimations } from '../composables/useScrollAnimations';
+
+const { fadeIn, staggerIn, scaleUp } = useScrollAnimations();
 
 const securityFeatures = [
     {
@@ -29,6 +32,38 @@ const stats = [
     { value: '70%', label: 'Faster Identity Verification' },
     { value: '8.3M', label: 'Fraud Attempts Blocked' }
 ];
+
+onMounted(() => {
+    // Fade in section header
+    const header = document.querySelector('.security-section .security-header');
+    if (header) {
+        fadeIn(header, { y: 40 });
+    }
+
+    // Stagger security cards
+    const cards = document.querySelectorAll('.security-card');
+    if (cards.length) {
+        staggerIn(cards, { y: 60, stagger: 0.15 });
+    }
+
+    // Scale up stats container
+    const statsGrid = document.querySelector('.stats-grid');
+    if (statsGrid) {
+        scaleUp(statsGrid, { scale: 0.95 });
+    }
+
+    // Scale up main feature card
+    const mainCard = document.querySelector('.main-feature-card');
+    if (mainCard) {
+        scaleUp(mainCard, { scale: 0.95 });
+    }
+
+    // Fade in feature badge
+    const badge = document.querySelector('.feature-badge');
+    if (badge) {
+        fadeIn(badge, { y: 20, duration: 0.6 });
+    }
+});
 </script>
 
 <template>
@@ -38,8 +73,8 @@ const stats = [
             <div class="security-header">
                 <span class="section-label">Security</span>
                 <h2 class="section-title">
-                    Enterprise-Grade Security<br>
-                    <span class="highlight">Where Trust is Built-In</span>
+                    <span class="text-highlight">Enterprise-Grade Security</span><br>
+                    Where Trust is Built-In
                 </h2>
                 <p class="section-subtitle">
                     Use AI-powered verification to secure identities and protect documents 
@@ -113,8 +148,8 @@ const stats = [
 
 .section-label {
     display: inline-block;
-    background: rgba(56, 161, 105, 0.1);
-    color: #38A169;
+    background: var(--theme-glow-red);
+    color: var(--primary-red);
     padding: 6px 16px;
     border-radius: 20px;
     font-size: 12px;
@@ -158,8 +193,8 @@ const stats = [
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(56, 161, 105, 0.15);
-    color: #38A169;
+    background: var(--theme-glow-red);
+    color: var(--primary-red);
     padding: 8px 16px;
     border-radius: 20px;
     font-size: 13px;
@@ -216,7 +251,7 @@ const stats = [
 .stat-value {
     font-size: 48px;
     font-weight: 800;
-    color: #38A169;
+    color: var(--theme-text-primary);
 }
 
 .stat-label {
@@ -281,7 +316,7 @@ const stats = [
 .security-card:hover .card-icon {
     transform: scale(1.1) rotate(5deg);
     background: var(--primary-red);
-    color: var(--theme-text-primary);
+    color: #fff;
     box-shadow: 0 10px 20px rgba(225, 32, 38, 0.3);
 }
 

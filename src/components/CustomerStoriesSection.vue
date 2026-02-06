@@ -64,7 +64,7 @@ const resumeAnimation = () => {
             <div class="stories-header">
                 <div class="header-content">
                     <h2 class="section-title">
-                        From startups to enterprises,<br>
+                        <span class="text-highlight">From startups to enterprises,</span><br>
                         Privy scales with teams of any size.
                     </h2>
                 </div>
@@ -224,8 +224,8 @@ const resumeAnimation = () => {
 .story-card {
     flex: 0 0 350px;
     min-width: 350px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--theme-bg-secondary);
+    border: 1px solid var(--primary-red);
     border-radius: 20px;
     padding: 28px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -248,10 +248,10 @@ const resumeAnimation = () => {
 }
 
 .story-card:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--theme-bg-tertiary);
     border-color: var(--primary-red);
     transform: translateY(-4px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3), 0 0 20px rgba(225, 32, 38, 0.15);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2), 0 0 25px rgba(225, 32, 38, 0.25);
 }
 
 .story-card:hover::before {

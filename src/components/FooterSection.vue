@@ -24,7 +24,7 @@
                     <div class="footer-col company-info">
                         <div class="footer-logo-wrapper">
                             <span class="logo-icon">❤</span>
-                            <span class="logo-text">privy</span>
+                            <span class="logo-text">Privy</span>
                         </div>
                         <div class="company-details">
                             <h5>PT Privy Identitas Digital</h5>
@@ -178,7 +178,7 @@
 }
 
 .card-text .highlight {
-    color: var(--primary-red);
+    color: var(--theme-red-contrast);
 }
 
 .card-text p {
@@ -192,7 +192,7 @@
     gap: 8px;
     padding: 16px 32px;
     background: var(--primary-red);
-    color: var(--theme-text-primary);
+    color: #fff;
     border-radius: 8px;
     font-size: 16px;
     font-weight: 600;
@@ -234,14 +234,14 @@
 }
 
 .logo-icon {
-    color: var(--primary-red);
+    color: var(--theme-red-contrast);
     font-size: 24px;
 }
 
 .logo-text {
     font-size: 28px;
     font-weight: 700;
-    color: var(--primary-red);
+    color: var(--theme-red-contrast);
 }
 
 .company-details h5 {
